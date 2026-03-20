@@ -1,0 +1,9 @@
+# Ignore everything
+*
+
+# Except Memories_chhoti directory
+!Memories_chhoti/
+!Memories_chhoti/**
+
+# And except .gitignore itself
+!.gitignore

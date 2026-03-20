@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Chhoti 💕</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&family=Kalam:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pink-light: #FFF0F5;
+            --pink-soft: #FFB6C1;
+            --peach: #FFDAB9;
+            --lavender: #E6E6FA;
+            --mint: #F0FFF0;
+            --cream: #FFFACD;
+            --rose: #FF69B4;
+            --text: #6B5B5B;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--pink-light) 0%, var(--lavender) 50%, var(--mint) 100%);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* Cute doodles background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(255, 182, 193, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(230, 230, 250, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255, 218, 185, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Music Player - Cuter design */
+        .music-player {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--white);
+            padding: 12px 22px;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(255, 105, 180, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Kalam', cursive;
+            border: 3px dashed var(--pink-soft);
+        }
+
+        .music-player:hover {
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0 12px 35px rgba(255, 105, 180, 0.4);
+        }
+
+        .music-player.playing {
+            background: linear-gradient(135deg, var(--pink-soft), var(--lavender));
+            animation: rainbow 3s infinite;
+        }
+
+        @keyframes rainbow {
+
+            0%,
+            100% {
+                filter: hue-rotate(0deg);
+            }
+
+            50% {
+                filter: hue-rotate(20deg);
+            }
+        }
+
+        .music-icon {
+            font-size: 1.3rem;
+            animation: spin 4s linear infinite paused;
+        }
+
+        .music-player.playing .music-icon {
+            animation-play-state: running;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Floating elements - hearts, stars, sparkles */
+        .float-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .float-item {
+            position: absolute;
+            opacity: 0;
+            animation: floatUp 12s infinite ease-in-out;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+
+            90% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* Hero Section - More heartfelt */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-doodle {
+            position: absolute;
+            font-size: 4rem;
+            opacity: 0.15;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: clamp(3.5rem, 12vw, 8rem);
+            background: linear-gradient(135deg, var(--rose), var(--pink-soft), var(--lavender));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            opacity: 0;
+            animation: fadeInBounce 1.2s ease-out 0.3s forwards;
+            text-shadow: 2px 2px 20px rgba(255, 105, 180, 0.3);
+        }
+
+        @keyframes fadeInBounce {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+
+            60% {
+                transform: translateY(10px) scale(1.05);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .hero .subtitle {
+            font-family: 'Kalam', cursive;
+            font-size: clamp(1.3rem, 3.5vw, 2.2rem);
+            color: var(--text);
+            max-width: 750px;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.8s forwards;
+            background: var(--white);
+            padding: 20px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 3px solid var(--pink-soft);
+        }
+
+        .hero .subtitle::before {
+            content: '💕';
+            display: block;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            font-size: 2.5rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1.5s forwards, bounce 2s infinite 2.5s;
+            cursor: pointer;
+            filter: drop-shadow(0 5px 10px rgba(255, 105, 180, 0.3));
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 0.7;
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Section styling */
+        section {
+            padding: 20px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-family: 'Pacifico', cursive;
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            background: linear-gradient(135deg, var(--rose), var(--pink-soft));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '✨';
+            position: absolute;
+            right: 10%;
+            top: -10px;
+            font-size: 2rem;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(1.2) rotate(180deg);
+            }
+        }
+
+        /* Photo Gallery - Scrapbook style */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 0px;
+        }
+
+        .polaroid {
+            background: var(--white);
+            padding: 12px;
+            padding-bottom: 45px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            transform: rotate(-2deg);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            position: relative;
+            border: 5px solid var(--white);
+        }
+
+        .polaroid::before {
+            content: '📌';
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            font-size: 2rem;
+            filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.2));
+        }
+
+        .polaroid:nth-child(1) {
+            transform: rotate(-3deg);
+            border-top: 5px solid var(--pink-soft);
+        }
+
+        .polaroid:nth-child(2) {
+            transform: rotate(2deg);
+            border-top: 5px solid var(--lavender);
+        }
+
+        .polaroid:nth-child(3) {
+            transform: rotate(-1deg);
+            border-top: 5px solid var(--peach);
+        }
+
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.1) translateY(-20px);
+            box-shadow: 0 20px 50px rgba(255, 105, 180, 0.35);
+            z-index: 10;
+        }
+
+        .polaroid::after {
+            content: '💝 Click!';
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Kalam', cursive;
+            font-size: 0.85rem;
+            color: var(--rose);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-weight: 700;
+        }
+
+        .polaroid:hover::after {
+            opacity: 1;
+        }
+
+        .polaroid-img {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Kalam', cursive;
+            color: #aaa;
+            font-size: 1.1rem;
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 2px dashed #e0e0e0;
+        }
+
+        .polaroid-caption {
+            font-family: 'Kalam', cursive;
+            font-size: 1.05rem;
+            color: var(--text);
+            text-align: center;
+            line-height: 1.4;
+            font-weight: 600;
+        }
+
+        /* Photo Modal */
+        .photo-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .photo-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            animation: zoomIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5) rotate(-10deg);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: transform 0.3s;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg) scale(1.2);
+        }
+
+        .modal-hearts {
+            position: absolute;
+            font-size: 2rem;
+            animation: floatUpModal 2s ease-out forwards;
+            pointer-events: none;
+        }
+
+        @keyframes floatUpModal {
+            to {
+                transform: translateY(-120px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Timeline - More playful */
+        .timeline {
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--rose), var(--pink-soft), var(--lavender), var(--mint));
+            border-radius: 3px;
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+        }
+
+        .memory-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .memory-card::before {
+            content: '💕';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            background: var(--white);
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.4);
+            animation: heartbeat 1.5s infinite;
+            border: 3px solid var(--pink-soft);
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: translateX(-50%) scale(1);
+            }
+
+            25% {
+                transform: translateX(-50%) scale(1.15);
+            }
+
+            50% {
+                transform: translateX(-50%) scale(1);
+            }
+        }
+
+        .memory-content {
+            background: var(--white);
+            padding: 22px;
+            border-radius: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .memory-content::before {
+            content: '✨';
+            position: absolute;
+            top: -12px;
+            right: 15px;
+            font-size: 1.5rem;
+        }
+
+        .memory-content:hover {
+            border-color: var(--pink-soft);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.2);
+        }
+
+        .memory-card:nth-child(odd) .memory-content {
+            grid-column: 1;
+            border-left: 5px solid var(--pink-soft);
+        }
+
+        .memory-card:nth-child(even) .memory-content {
+            grid-column: 2;
+            border-right: 5px solid var(--lavender);
+        }
+
+        .memory-date {
+            font-family: 'Kalam', cursive;
+            font-size: 0.9rem;
+            color: var(--rose);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .memory-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.7rem;
+            color: var(--text);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .chat-bubble {
+            background: var(--pink-light);
+            padding: 10px 15px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+            font-family: 'Kalam', cursive;
+            font-size: 1rem;
+            max-width: 85%;
+            animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            line-height: 1.5;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .chat-bubble.you {
+            background: linear-gradient(135deg, var(--lavender), var(--mint));
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .chat-bubble.her {
+            background: linear-gradient(135deg, var(--pink-light), var(--peach));
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+
+            70% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .memory-reflection {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px dashed var(--pink-soft);
+            font-style: italic;
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        .special-quote {
+            background: linear-gradient(135deg, var(--cream), var(--pink-light));
+            padding: 18px;
+            border-left: 5px solid var(--rose);
+            font-family: 'Kalam', cursive;
+            font-size: 1.1rem;
+            margin: 15px 0;
+            border-radius: 15px;
+            line-height: 1.6;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            font-weight: 600;
+        }
+
+        /* Sticky Notes - More colorful and playful */
+        .sticky-notes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .sticky-note {
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+            font-family: 'Kalam', cursive;
+            font-size: 0.98rem;
+            transform: rotate(-1deg);
+            transition: all 0.3s ease;
+            line-height: 1.5;
+            font-weight: 600;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+        }
+
+        .sticky-note::before {
+            content: '📌';
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            font-size: 1.3rem;
+        }
+
+        .sticky-note:nth-child(1) {
+            background: linear-gradient(135deg, #FFF9C4 0%, #FFF176 100%);
+            transform: rotate(-2deg);
+        }
+
+        .sticky-note:nth-child(2) {
+            background: linear-gradient(135deg, #FFCCBC 0%, #FFAB91 100%);
+            transform: rotate(1.5deg);
+        }
+
+        .sticky-note:nth-child(3) {
+            background: linear-gradient(135deg, #C5E1A5 0%, #AED581 100%);
+            transform: rotate(-1.5deg);
+        }
+
+        .sticky-note:nth-child(4) {
+            background: linear-gradient(135deg, #B2DFDB 0%, #80CBC4 100%);
+            transform: rotate(2deg);
+        }
+
+        .sticky-note:nth-child(5) {
+            background: linear-gradient(135deg, #E1BEE7 0%, #CE93D8 100%);
+            transform: rotate(-1deg);
+        }
+
+        .sticky-note:nth-child(6) {
+            background: linear-gradient(135deg, #FFE0B2 0%, #FFCC80 100%);
+            transform: rotate(1deg);
+        }
+
+        .sticky-note:nth-child(7) {
+            background: linear-gradient(135deg, #F8BBD0 0%, #F48FB1 100%);
+            transform: rotate(-2deg);
+        }
+
+        .sticky-note:nth-child(8) {
+            background: linear-gradient(135deg, #DCEDC8 0%, #C5E1A5 100%);
+            transform: rotate(1.5deg);
+        }
+
+        .sticky-note:nth-child(9) {
+            background: linear-gradient(135deg, #B3E5FC 0%, #81D4FA 100%);
+            transform: rotate(-1deg);
+        }
+
+        .sticky-note:nth-child(10) {
+            background: linear-gradient(135deg, #FFCCBC 0%, #FFAB91 100%);
+            transform: rotate(2deg);
+        }
+
+        .sticky-note:nth-child(11) {
+            background: linear-gradient(135deg, #D1C4E9 0%, #B39DDB 100%);
+            transform: rotate(-1.5deg);
+        }
+
+        .sticky-note:nth-child(12) {
+            background: linear-gradient(135deg, #FFF59D 0%, #FFF176 100%);
+            transform: rotate(1deg);
+        }
+
+        .sticky-note:nth-child(13) {
+            background: linear-gradient(135deg, #FFCCBC 0%, #FFAB91 100%);
+            transform: rotate(-2deg);
+        }
+
+        .sticky-note:nth-child(14) {
+            background: linear-gradient(135deg, #C5CAE9 0%, #9FA8DA 100%);
+            transform: rotate(1.5deg);
+        }
+
+        .sticky-note:nth-child(15) {
+            background: linear-gradient(135deg, #F8BBD0 0%, #F48FB1 100%);
+            transform: rotate(-1deg);
+        }
+
+        .sticky-note:hover {
+            transform: rotate(0deg) scale(1.08);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        /* Final Message - Most heartfelt */
+        .final-message {
+            background: linear-gradient(135deg, var(--white), var(--pink-light));
+            padding: 45px;
+            border-radius: 35px;
+            box-shadow: 0 15px 50px rgba(255, 105, 180, 0.25);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            border: 5px solid var(--pink-soft);
+            position: relative;
+        }
+
+        .final-message::before {
+            content: '💌';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3.5rem;
+            filter: drop-shadow(0 5px 15px rgba(255, 105, 180, 0.4));
+        }
+
+        .final-message h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, var(--rose), var(--pink-soft));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+        }
+
+        .final-message p {
+            font-size: 1.12rem;
+            line-height: 2;
+            margin-bottom: 18px;
+            color: var(--text);
+            font-weight: 300;
+        }
+
+        .final-message p strong {
+            color: var(--rose);
+            font-weight: 600;
+        }
+
+        .final-message .signature {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, var(--rose), var(--pink-soft));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-top: 35px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .memory-card {
+                grid-template-columns: 1fr;
+                padding-left: 60px;
+                gap: 20px;
+                margin-bottom: 25px;
+            }
+
+            .memory-card::before {
+                left: 30px;
+            }
+
+            .memory-card:nth-child(odd) .memory-content,
+            .memory-card:nth-child(even) .memory-content {
+                grid-column: 1;
+            }
+
+            .final-message {
+                padding: 35px 20px;
+            }
+
+            .music-player {
+                padding: 10px 18px;
+                font-size: 0.85rem;
+            }
+
+            .section-title::after {
+                right: 5%;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Photo Modal -->
+    <div class="photo-modal" id="photoModal">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <div class="modal-content" id="modalContent"></div>
+    </div>
+
+    <!-- Floating elements -->
+    <div class="float-container" id="floatContainer"></div>
+
+    <div id="story-panel" class="tab-panel active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-doodle" style="top: 15%; left: 10%;">🌸</div>
+            <div class="hero-doodle" style="top: 25%; right: 12%;">💝</div>
+            <div class="hero-doodle" style="bottom: 20%; left: 15%;">✨</div>
+            <div class="hero-doodle" style="bottom: 30%; right: 10%;">🌟</div>
+
+            <h1>For My Chhoti</h1>
+            <p class="subtitle">
+                Not connected by blood, but by heart 💕<br>
+                These memories are my treasure<br>
+                Every moment with you is a blessing I cherish
+            </p>
+            <div class="scroll-indicator">💝</div>
+        </section>
+
+        <!-- Photo Section -->
+        <section id="photos">
+            <div class="container">
+                <h2 class="section-title">Our Precious Memories</h2>
+                <div class="photo-grid">
+                    <div class="polaroid" onclick="openPhotoModal(this)">
+                        <div class="polaroid-img">
+                            <img src="images/photo15.jpeg" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div class="polaroid-caption">That beautiful day ✨<br>You glowed with happiness</div>
+                    </div>
+                    <div class="polaroid" onclick="openPhotoModal(this)">
+                        <div class="polaroid-img">
+                            <img src="images/photo5.jpeg" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div class="polaroid-caption">Little Chhoti 💕<br>So pure, so precious</div>
+                    </div>
+                    <div class="polaroid" onclick="openPhotoModal(this)">
+                        <div class="polaroid-img">
+                            <img src="images/photo27.jpeg" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div class="polaroid-caption">Forever in my heart 🌸</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline">
+            <div class="container">
+                <h2 class="section-title">Our Beautiful Story</h2>
+                <div class="timeline">
+
+                    <!-- Memory 1 -->
+                    <div class="memory-card">
+                        <div class="memory-content">
+                            <div class="memory-date">📅 August 11, 2023</div>
+                            <h3 class="memory-title">Our Sweet "Sorry" Moments</h3>
+                            <div class="chat-bubble you">Sorry notification nhi aya tha</div>
+                            <div class="chat-bubble her">It's okay</div>
+                            <div class="chat-bubble you">Sorry agar tjhe aisa lga to😅</div>
+                            <p class="memory-reflection">
+                                You always forgave me so gently. Your "It's okay" was like a warm hug through text. 💕
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Memory 2 -->
+                    <div class="memory-card">
+                        <div class="memory-content">
+                            <div class="memory-date">📅 August 11, 2023</div>
+                            <h3 class="memory-title">When We Could Feel Each Other</h3>
+                            <div class="chat-bubble her">Mood kharab ha</div>
+                            <div class="chat-bubble you">Why?</div>
+                            <div class="chat-bubble her">Muja laga... Ap ka</div>
+                            <div class="chat-bubble you">Ha tjhe 😁😁</div>
+                            <div class="chat-bubble her">Ofcourse ma hu</div>
+                            <p class="memory-reflection">
+                                We didn't need words to understand. Our hearts were connected. That's rare. That's us.
+                                🌟
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Memory 3 -->
+                    <div class="memory-card">
+                        <div class="memory-content">
+                            <div class="memory-date">📅 August 11, 2023</div>
+                            <h3 class="memory-title">You Were My Only "Khaas Person"</h3>
+                            <div class="chat-bubble her">Baat to ak khas person ke ha</div>
+                            <div class="chat-bubble her">I know the truth</div>
+                            <div class="chat-bubble you">😂 honestly ek hi khaas person h clg m tu bas</div>
+                            <p class="memory-reflection">
+                                I meant every word. In that whole college, you were the ONLY one who mattered. My
+                                Chhoti. 💝
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Memory 4 -->
+                    <div class="memory-card">
+                        <div class="memory-content">
+                            <div class="memory-date">📅 August 11, 2023</div>
+                            <h3 class="memory-title">The Sacred "Chhoti Behan" Moment</h3>
+                            <div class="chat-bubble her">Ok ab hum kon hota ha kuch vala 😞</div>
+                            <div class="chat-bubble you">Chhoti behan</div>
+                            <div class="chat-bubble you">Pura hakk h jo mrji puch</div>
+                            <div class="chat-bubble her">🙂</div>
+                            <p class="memory-reflection">
+                                This wasn't just words. I gave you my heart, my trust, my everything. You became my
+                                family.
+                                ✨
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Memory 5 -->
+                    <div class="memory-card">
+                        <div class="memory-content">
+                            <div class="memory-date">📅 August 11, 2023</div>
+                            <h3 class="memory-title">Late Night Study Partners</h3>
+                            <div class="chat-bubble you">Chal quiz dete h</div>
+                            <div class="chat-bubble you">Ha abhi saath saath kar rha</div>
+                            <div class="chat-bubble her">Give me 10 min</div>
+                            <p class="memory-reflection">
+                                Those simple study nights meant the world. Working together, laughing together, growing
+                                together. 📚
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Memory 6 -->
+                    <div class="memory-card">
+                        <div class="memory-content">
+                            <div class="memory-date">📅 August 12, 2023</div>
+                            <h3 class="memory-title">"Permission Hai Tere Paas"</h3>
+                            <div class="chat-bubble her">Sorry for distributing you 🙂🙂</div>
+                            <div class="chat-bubble her">and once again sorry</div>
+                            <div class="chat-bubble you">Bas ab sorry ki ratt band kar</div>
+                            <div class="chat-bubble you">Permission h tere paas</div>
+                            <p class="memory-reflection">
+                                You NEVER had to apologize for being in my life. You had full permission - always. 🌸
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Memory 7 -->
+                    <div class="memory-card">
+                        <div class="memory-content">
+                            <div class="memory-date">📅 August 13, 2023</div>
+                            <h3 class="memory-title">Listening to Your Heart</h3>
+                            <div class="chat-bubble her">Thanks for mere bakvas suna ka lea</div>
+                            <p class="memory-reflection">
+                                It was NEVER bakvas to me. Every word you spoke was precious. I loved listening to you.
+                                💕
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Memory 8 -->
+                    <div class="memory-card">
+                        <div class="memory-content">
+                            <div class="memory-date">📅 October 5, 2023</div>
+                            <h3 class="memory-title">My Forever Promise</h3>
+                            <blockquote class="special-quote">
+                                "You are my younger sister as well as my best friend<br>
+                                I accepted it for lifelong 💕"
+                            </blockquote>
+                            <p class="memory-reflection">
+                                Not for a moment. Not for a year. For LIFELONG. That was my promise then. It still is
+                                now. ✨
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Memory 9 -->
+                    <div class="memory-card">
+                        <div class="memory-content">
+                            <div class="memory-date">📅 October 5, 2023</div>
+                            <h3 class="memory-title">Unbreakable Trust</h3>
+                            <div class="chat-bubble her">Please I request don't trust me</div>
+                            <div class="chat-bubble you">Gudiya tere kehne se thodi trust khatam ho jayega😊😊</div>
+                            <div class="chat-bubble her">Asa Kay karu jo khatam ho jaya</div>
+                            <div class="chat-bubble you">Kuch kar le nhi hoga</div>
+                            <p class="memory-reflection">
+                                You tried to push me away to protect me. But real siblings don't leave. They stay. I
+                                stayed.
+                                💝
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Memory 10 -->
+                    <div class="memory-card">
+                        <div class="memory-content">
+                            <div class="memory-date">📅 October 5, 2023</div>
+                            <h3 class="memory-title">"Accha Insaan"</h3>
+                            <blockquote class="special-quote">
+                                "Kafi accha insaan ho pata hona ka bad be ak matalab insaan ka kam kar raha ho"
+                            </blockquote>
+                            <p class="memory-reflection">
+                                Even in pain, you called me good. Your pure heart saw goodness even when you were
+                                hurting.
+                                🌟
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Memory 11 -->
+                    <div class="memory-card">
+                        <div class="memory-content">
+                            <div class="memory-date">📅 October 5, 2023</div>
+                            <h3 class="memory-title">I Count You As My Family</h3>
+                            <div class="chat-bubble you">Jaise tujhe teri family ki habbit h</div>
+                            <div class="chat-bubble you">Vaise mjhe b meri family ki habbit h aur i count you as my
+                                family
+                            </div>
+                            <p class="memory-reflection">
+                                Not a friend. Not a classmate. FAMILY. That's what you are. That's what you'll always
+                                be. 💕
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Memory 12 -->
+                    <div class="memory-card">
+                        <div class="memory-content">
+                            <div class="memory-date">📅 October 18, 2023</div>
+                            <h3 class="memory-title">The Sacred Rakhi</h3>
+                            <blockquote class="special-quote">
+                                "Friendship change ho skti but you have also tied rakhi on my wrist😊<br>
+                                So I will always be there for you"
+                            </blockquote>
+                            <p class="memory-reflection">
+                                That thread wasn't just tradition. It was a sacred bond. A promise I'll never break. 🌸
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Memory 13 -->
+                    <div class="memory-card">
+                        <div class="memory-content">
+                            <div class="memory-date">📅 October 12, 2023</div>
+                            <h3 class="memory-title">My Sweet Gudiya</h3>
+                            <div class="chat-bubble you">Thik ho gudiya?</div>
+                            <div class="chat-bubble her">Yes</div>
+                            <div class="chat-bubble you">Naraz ho?</div>
+                            <div class="chat-bubble you">Sorry raat k behaviour k liye🙂</div>
+                            <div class="chat-bubble her">Thik ha</div>
+                            <p class="memory-reflection">
+                                "Gudiya" - my precious doll. That name held all my love, all my care for you. 💝
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Memory 14 -->
+                    <div class="memory-card">
+                        <div class="memory-content">
+                            <div class="memory-date">📅 Every Night</div>
+                            <h3 class="memory-title">Our Goodnight Ritual</h3>
+                            <div class="chat-bubble you">Shubhratri🙂</div>
+                            <div class="chat-bubble her">Shubhratri 🙂🙂</div>
+                            <p class="memory-reflection">
+                                Those simple goodnights. Your double smileys 🙂🙂. I miss them SO much. ✨
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Things I Miss -->
+        <section id="miss">
+            <div class="container">
+                <h2 class="section-title">What My Heart Misses</h2>
+                <div class="sticky-notes">
+                    <div class="sticky-note">
+                        Your magical "It's okay" that healed everything 💕
+                    </div>
+                    <div class="sticky-note">
+                        Late nights doing quizzes "saath saath" 📚
+                    </div>
+                    <div class="sticky-note">
+                        Being called "accha insaan" by you 🌟
+                    </div>
+                    <div class="sticky-note">
+                        Your endless "Sorry" when you never had to 🙂
+                    </div>
+                    <div class="sticky-note">
+                        Saying "Permission h tere paas" ✨
+                    </div>
+                    <div class="sticky-note">
+                        Calling you "Gudiya" and checking "Thik ho?" 💝
+                    </div>
+                    <div class="sticky-note">
+                        Your signature double smileys 🙂🙂
+                    </div>
+                    <div class="sticky-note">
+                        You teasing me about college crushes 😂
+                    </div>
+                    <div class="sticky-note">
+                        "Shubhratri 🙂🙂" every single night 🌙
+                    </div>
+                    <div class="sticky-note">
+                        "Thanks for mere bakvas suna" - never bakvas! 💕
+                    </div>
+                    <div class="sticky-note">
+                        Your trust that you tried to take back 🌸
+                    </div>
+                    <div class="sticky-note">
+                        Being your protective Bhaiya 💪
+                    </div>
+                    <div class="sticky-note">
+                        Your honest "I know the truth" 💫
+                    </div>
+                    <div class="sticky-note">
+                        The rakhi on my wrist - my most precious thread 🎀
+                    </div>
+                    <div class="sticky-note">
+                        Just... you. Everything about you. 💕
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Message -->
+        <section id="final">
+            <div class="container">
+                <div class="final-message">
+                    <h2>I Miss You, Chhoti</h2>
+                    <p>
+                        I know we haven't talked in a while, and I know there's silence between us now.
+                    </p>
+                    <p>
+                        But looking back at every single message, I remember <strong>everything</strong> -
+                        every "It's okay", every time you said sorry (when you never had to),
+                        every late night quiz session, every moment you trusted me even while saying "please don't trust
+                        me."
+                    </p>
+                    <p>
+                        You called me "<strong>accha insaan</strong>" even when you thought I was hurting you.<br>
+                        You thanked me for listening to your "bakvas" when it was <strong>never</strong> that to me.<br>
+                        You gave me the right to call you my <strong>Chhoti behan</strong> - the title I treasure most.
+                    </p>
+                    <p style="margin-top: 30px;">
+                        That rakhi you tied wasn't just a thread.<br>
+                        It was a <strong>sacred promise</strong>.<br>
+                        And I'm keeping mine. 💕
+                    </p>
+                    <p style="margin-top: 30px; font-weight: 400;">
+                        <strong>I miss:</strong><br>
+                        Your "Shubhratri 🙂🙂"<br>
+                        Asking "Thik ho gudiya?"<br>
+                        Being your "accha insaan"<br>
+                        Our random mood check-ins<br>
+                        Study sessions together<br>
+                        Just... <strong>you</strong>. 🌸
+                    </p>
+                    <p style="margin-top: 35px;">
+                        You're not blood-related, but you're my <strong>sister</strong>.<br>
+                        Silence can't change that. Time can't change that.<br>
+                        <strong>Nothing</strong> can change that.
+                    </p>
+                    <p style="margin-top: 25px;">
+                        Whenever you're ready, I'm here.<br>
+                        <strong>Same person. Same promise. Same love.</strong> 💕
+                    </p>
+                    <p class="signature">
+                        Forever yours,<br>
+                        Your Bhaiya 💝
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div style="height: 30px;"></div>
+
+    </div> <!-- End story-panel -->
+
+    <script>
+        // Music Player Removed
+
+        // Photo Modal
+        function openPhotoModal(polaroid) {
+            const modal = document.getElementById('photoModal');
+            const modalContent = document.getElementById('modalContent');
+
+            const clone = polaroid.cloneNode(true);
+            clone.style.transform = 'none';
+            clone.style.maxWidth = '600px';
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            modal.classList.add('active');
+
+            // Hearts explosion
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'modal-hearts';
+                    heart.textContent = ['💕', '💝', '💖', '💗'][Math.floor(Math.random() * 4)];
+                    heart.style.left = (Math.random() * 100) + '%';
+                    heart.style.top = '50%';
+                    modal.appendChild(heart);
+
+                    setTimeout(() => heart.remove(), 2000);
+                }, i * 100);
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('photoModal').classList.remove('active');
+        }
+
+        document.getElementById('photoModal').addEventListener('click', (e) => {
+            if (e.target.id === 'photoModal') closeModal();
+        });
+
+        // Floating elements
+        const floatContainer = document.getElementById('floatContainer');
+        const emojis = ['💕', '💝', '💖', '✨', '🌸', '🌟', '💗', '🦋'];
+
+        for (let i = 0; i < 20; i++) {
+            const item = document.createElement('div');
+            item.className = 'float-item';
+            item.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            item.style.left = Math.random() * 100 + '%';
+            item.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            item.style.animationDelay = Math.random() * 12 + 's';
+            floatContainer.appendChild(item);
+        }
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scroll
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            document.getElementById('photos').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+
+    <!-- Modular Scripts -->
+    <script src="tabs-module.js"></script>
+    <script src="gallery-audio.js"></script>
+    <script src="chatbot.js"></script>
+</body>
+
+</html>
