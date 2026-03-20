@@ -16,14 +16,14 @@
         }
 
         :root {
-            --pink-light: #FFF0F5;
-            --pink-soft: #FFB6C1;
-            --peach: #FFDAB9;
-            --lavender: #E6E6FA;
-            --mint: #F0FFF0;
-            --cream: #FFFACD;
-            --rose: #FF69B4;
-            --text: #6B5B5B;
+            --pink-light: #FFF5F7;
+            --pink-soft: #FFD1DC;
+            --peach: #FFE4E1;
+            --lavender: #FFF0F5;
+            --mint: #FFF5EE;
+            --cream: #FFFDD0;
+            --rose: #FF9AA2;
+            --text: #705D56;
             --white: #FFFFFF;
         }
 
@@ -151,7 +151,7 @@
 
         /* Hero Section - More heartfelt */
         .hero {
-            min-height: 100vh;
+            min-height: calc(100vh - 100px);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -308,28 +308,9 @@
             width: 100%;
         }
 
-        .section-title::after {
-            content: '✨';
-            position: absolute;
-            right: 10%;
-            top: -10px;
-            font-size: 2rem;
-            animation: twinkle 2s infinite;
-        }
 
-        @keyframes twinkle {
 
-            0%,
-            100% {
-                opacity: 1;
-                transform: scale(1) rotate(0deg);
-            }
 
-            50% {
-                opacity: 0.5;
-                transform: scale(1.2) rotate(180deg);
-            }
-        }
 
         /* Photo Gallery - Scrapbook style */
         .photo-grid {
@@ -351,14 +332,7 @@
             border: 5px solid var(--white);
         }
 
-        .polaroid::before {
-            content: '📌';
-            position: absolute;
-            top: -15px;
-            right: 20px;
-            font-size: 2rem;
-            filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.2));
-        }
+
 
         .polaroid:nth-child(1) {
             transform: rotate(-3deg);
@@ -381,23 +355,9 @@
             z-index: 10;
         }
 
-        .polaroid::after {
-            content: '💝 Click!';
-            position: absolute;
-            bottom: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: 'Kalam', cursive;
-            font-size: 0.85rem;
-            color: var(--rose);
-            opacity: 0;
-            transition: opacity 0.3s;
-            font-weight: 700;
-        }
 
-        .polaroid:hover::after {
-            opacity: 1;
-        }
+
+
 
         .polaroid-img {
             width: 100%;
@@ -520,21 +480,16 @@
         }
 
         .memory-card::before {
-            content: '💕';
+            content: '';
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 2rem;
             background: var(--white);
-            width: 55px;
-            height: 55px;
+            width: 25px;
+            height: 25px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.4);
-            animation: heartbeat 1.5s infinite;
-            border: 3px solid var(--pink-soft);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+            border: 4px solid var(--pink-soft);
         }
 
         @keyframes heartbeat {
@@ -563,13 +518,7 @@
             position: relative;
         }
 
-        .memory-content::before {
-            content: '✨';
-            position: absolute;
-            top: -12px;
-            right: 15px;
-            font-size: 1.5rem;
-        }
+
 
         .memory-content:hover {
             border-color: var(--pink-soft);
@@ -688,13 +637,7 @@
             position: relative;
         }
 
-        .sticky-note::before {
-            content: '📌';
-            position: absolute;
-            top: -10px;
-            right: 10px;
-            font-size: 1.3rem;
-        }
+
 
         .sticky-note:nth-child(1) {
             background: linear-gradient(135deg, #FFF9C4 0%, #FFF176 100%);
@@ -790,15 +733,7 @@
             position: relative;
         }
 
-        .final-message::before {
-            content: '💌';
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 3.5rem;
-            filter: drop-shadow(0 5px 15px rgba(255, 105, 180, 0.4));
-        }
+
 
         .final-message h2 {
             font-family: 'Pacifico', cursive;
@@ -864,9 +799,7 @@
                 font-size: 0.85rem;
             }
 
-            .section-title::after {
-                right: 5%;
-            }
+    
         }
     </style>
     <link rel="stylesheet" href="styles.css">
@@ -886,11 +819,7 @@
     <div id="story-panel" class="tab-panel active">
         <!-- Hero Section -->
         <section class="hero">
-            <div class="hero-doodle" style="top: 15%; left: 10%;">🌸</div>
-            <div class="hero-doodle" style="top: 25%; right: 12%;">💝</div>
-            <div class="hero-doodle" style="bottom: 20%; left: 15%;">✨</div>
-            <div class="hero-doodle" style="bottom: 30%; right: 10%;">🌟</div>
-
+                                                
             <h1>For My Chhoti</h1>
             <p class="subtitle">
                 Not connected by blood, but by heart 💕<br>
@@ -1256,12 +1185,30 @@
             </div>
         </section>
 
-        <div style="height: 30px;"></div>
-
-    </div> <!-- End story-panel -->
+            </div> <!-- End story-panel -->
 
     <script>
-        // Music Player Removed
+        // Cute Soft Background Music (Invisible Autoplay)
+        const bgMusic = new Audio("https://upload.wikimedia.org/wikipedia/commons/e/ea/Music_box.ogg");
+        bgMusic.loop = true;
+        bgMusic.volume = 0.20;
+
+        // Try autoplaying immediately
+        bgMusic.play().catch(() => {
+            // Autoplay blocked: wait for first interaction
+            const startAudio = () => {
+                bgMusic.play().catch(e => console.log('Background autoplay prevented'));
+                // Remove listeners once interacting
+                ['click', 'scroll', 'touchstart', 'keydown'].forEach(evt => 
+                    window.removeEventListener(evt, startAudio)
+                );
+            };
+            
+            // Attach to common interactions passively
+            ['click', 'scroll', 'touchstart', 'keydown'].forEach(evt => {
+                window.addEventListener(evt, startAudio, { once: true, passive: true });
+            });
+        });
 
         // Photo Modal
         function openPhotoModal(polaroid) {
@@ -1303,7 +1250,7 @@
         const floatContainer = document.getElementById('floatContainer');
         const emojis = ['💕', '💝', '💖', '✨', '🌸', '🌟', '💗', '🦋'];
 
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 5; i++) {
             const item = document.createElement('div');
             item.className = 'float-item';
             item.textContent = emojis[Math.floor(Math.random() * emojis.length)];

@@ -42,7 +42,7 @@
         // BACKEND LLM CHATBOT with Smart Fallback
         // Uses local Python server for real AI conversations
 
-        const BACKEND_URL = 'http://localhost:5000/chat';
+        const BACKEND_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:5000/api/chat' : '/api/chat';
         const SESSION_ID = 'user_' + Math.random().toString(36).substr(2, 9);
 
         let conversationHistory = [];
